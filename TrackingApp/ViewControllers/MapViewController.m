@@ -6,19 +6,26 @@
 //  Copyright © 2018 Grzegorz Górnisiewicz. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MapViewController.h"
 
-@interface ViewController ()
+#import "LocationMonitoringService.h"
+
+@interface MapViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MapViewController
+
+- (IBAction)onTrackingStatusValueChanged:(UISwitch *)sender {
+    if (sender.isOn) {
+        [LocationMonitoringService authorizeAccess];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    locationManager = [[CLLocationManager alloc] init];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
