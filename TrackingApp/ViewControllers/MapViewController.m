@@ -10,6 +10,8 @@
 
 #import "LocationMonitoringService.h"
 
+#import "JourneysTVC/JourneysTVC.h"
+
 @interface MapViewController ()
 
 @end
@@ -18,19 +20,37 @@
 
 - (IBAction)onTrackingStatusValueChanged:(UISwitch *)sender {
     if (sender.isOn) {
-        [LocationMonitoringService authorizeAccess];
+        [monitoringService startRecording];
+    } else {
+        [monitoringService stopRecording];
     }
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    NSString *speedString = [NSNumberFormatter localizedStringFromNumber:@(userLocation.location.speed) numberStyle:NSNumberFormatterDecimalStyle];
+    _speedLabel.text = [NSString stringWithFormat:@"%@", speedString];
+    [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+}
+
+- (void)showAllJourneys:(UIBarButtonItem *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    JourneysTVC *journeysTVC = [sb instantiateViewControllerWithIdentifier:@"JourneysTVC"];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    locationManager = [[CLLocationManager alloc] init];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Journeys" style:UIBarButtonItemStylePlain target:self action:@selector(showAllJourneys:)];
+    
+    _mapView.showsUserLocation = YES;
+    _mapView.userTrackingMode = MKUserTrackingModeFollow;
+
+    monitoringService = [[LocationMonitoringService alloc] init];
+    [monitoringService authorizeAccess];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
 
 @end

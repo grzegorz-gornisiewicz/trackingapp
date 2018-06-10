@@ -20,18 +20,55 @@ static LocationMonitoringService *sharedInstance;
     self = [super init];
     
     if (self) {
+        _authorizationStatus = [CLLocationManager authorizationStatus];
+        
         locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        locationManager.activityType = CLActivityTypeAutomotiveNavigation;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.pausesLocationUpdatesAutomatically = NO;
+        locationManager.allowsBackgroundLocationUpdates = YES;
     }
-    
+
     return self;
 }
 
-- (void)authorizeAccess {
-    [locationManager requestAlwaysAuthorization];
+- (void)dealloc {
+    [self stopRecording];
+    locationManager = nil;
 }
 
-- (CLAuthorizationStatus)currentAuthorizationStatus {
-    return [CLLocationManager authorizationStatus];
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    self.lastLocation = [locations lastObject];
+    if (_lastLocation) {
+        NSLog(@"lastLocation:%@", _lastLocation);
+        self.lastSpeed = _lastLocation.speed;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    self.authorizationStatus = status;
+}
+
+- (void)authorizeAccess {
+    if (_authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestAlwaysAuthorization];
+    }
+}
+
+- (void)startRecording {
+    if (locationManager && !_isRecording) {
+        _isRecording = YES;
+        [locationManager startUpdatingLocation];
+    }
+}
+
+- (void)stopRecording {
+    if (locationManager && _isRecording) {
+        _isRecording = NO;
+        [locationManager stopUpdatingLocation];
+    }
 }
 
 + (void)initialize {
@@ -40,18 +77,6 @@ static LocationMonitoringService *sharedInstance;
             sharedInstance = [[LocationMonitoringService alloc] init];
         }
     }
-}
-
-+ (instancetype)sharedInstance {
-    return sharedInstance;
-}
-
-+ (CLAuthorizationStatus)currentAuthorizationStatus {
-    return [[LocationMonitoringService sharedInstance] currentAuthorizationStatus];
-}
-
-+ (void)authorizeAccess {
-    [[LocationMonitoringService sharedInstance] authorizeAccess];
 }
 
 @end

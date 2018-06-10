@@ -9,11 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface LocationMonitoringService : NSObject {
+static NSString * _Nonnull const kAuthorizationStatus   = @"authorizationStatus";
+static NSString * _Nonnull const kLastLocation          = @"lastLocation";
+static NSString * _Nonnull const kLastSpeed             = @"lastSpeed";
+
+@interface LocationMonitoringService : NSObject<CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
 }
 
-+ (instancetype)sharedInstance;
-+ (void)authorizeAccess;
+@property(nonatomic) CLAuthorizationStatus authorizationStatus;
+@property(nonatomic) CLLocation *lastLocation;
+@property(nonatomic) CLLocationSpeed lastSpeed;
+@property(nonatomic) BOOL isRecording;
+
+- (void)authorizeAccess;
+- (void)stopRecording;
+- (void)startRecording;
 
 @end

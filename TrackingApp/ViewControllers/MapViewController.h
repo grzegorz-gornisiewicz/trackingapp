@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController {
-    CLLocationManager *locationManager;
+@class LocationMonitoringService;
+
+@interface MapViewController : UIViewController<MKMapViewDelegate> {
+    LocationMonitoringService *monitoringService;
 }
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *trackingStatusSwitch;
 
 @end
