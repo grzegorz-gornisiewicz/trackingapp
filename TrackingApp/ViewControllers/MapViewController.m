@@ -36,19 +36,21 @@
 
     [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
     
-    if (lastLocation) {
-        CLLocation *currentLocation = userLocation.location;
-        CLLocationCoordinate2D coordinateArray[2];
+    if (monitoringService.isRecording) {
+        if (lastLocation) {
+            CLLocation *currentLocation = userLocation.location;
+            CLLocationCoordinate2D coordinateArray[2];
 
-        coordinateArray[0] = CLLocationCoordinate2DMake(lastLocation.coordinate.latitude, lastLocation.coordinate.longitude);
-        coordinateArray[1] = CLLocationCoordinate2DMake(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
-        
-        MKPolyline *routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:2];
-        [self.mapView addOverlay:routeLine level:MKOverlayLevelAboveRoads | MKOverlayLevelAboveLabels];
+            coordinateArray[0] = CLLocationCoordinate2DMake(lastLocation.coordinate.latitude, lastLocation.coordinate.longitude);
+            coordinateArray[1] = CLLocationCoordinate2DMake(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
+            
+            MKPolyline *routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:2];
+            [self.mapView addOverlay:routeLine level:MKOverlayLevelAboveRoads | MKOverlayLevelAboveLabels];
 
-        lastLocation = userLocation.location;
-    } else {
-        lastLocation = userLocation.location;
+            lastLocation = userLocation.location;
+        } else {
+            lastLocation = userLocation.location;
+        }
     }
 }
 

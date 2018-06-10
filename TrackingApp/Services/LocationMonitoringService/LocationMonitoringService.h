@@ -13,8 +13,11 @@ static NSString * _Nonnull const kAuthorizationStatus   = @"authorizationStatus"
 static NSString * _Nonnull const kLastLocation          = @"lastLocation";
 static NSString * _Nonnull const kLastSpeed             = @"lastSpeed";
 
+@class DataManager;
+
 @interface LocationMonitoringService : NSObject<CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
+    DataManager *dataManager;
 }
 
 @property(nonatomic) CLAuthorizationStatus authorizationStatus;

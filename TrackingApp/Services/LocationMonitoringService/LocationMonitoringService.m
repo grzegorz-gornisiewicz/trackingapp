@@ -8,6 +8,10 @@
 
 #import "LocationMonitoringService.h"
 
+#import "DataManager.h"
+#import "Journey+CoreDataClass.h"
+#import "Location+CoreDataClass.h"
+
 @implementation LocationMonitoringService
 
 static LocationMonitoringService *sharedInstance;
@@ -29,6 +33,8 @@ static LocationMonitoringService *sharedInstance;
         locationManager.distanceFilter = 2.0;
         locationManager.pausesLocationUpdatesAutomatically = NO;
         locationManager.allowsBackgroundLocationUpdates = YES;
+        
+        dataManager = [[DataManager alloc] init];
     }
 
     return self;
@@ -45,6 +51,13 @@ static LocationMonitoringService *sharedInstance;
         NSLog(@"lastLocation:%@", _lastLocation);
         self.lastSpeed = _lastLocation.speed;
     }
+ 
+//    Location *location = [Location new];
+//    location.uuid = [NSUUID new].UUIDString;
+//    location.timestamp = [NSDate date];
+//    location.speed = self.lastLocation.speed;
+//    location.latitude = self.lastLocation.coordinate.latitude;
+//    location.longitude = self.lastLocation.coordinate.longitude;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -59,6 +72,9 @@ static LocationMonitoringService *sharedInstance;
 
 - (void)startRecording {
     if (locationManager && !_isRecording) {
+//        currentJourney = [Journey new];
+//        currentJourney.uuid = [NSUUID new].UUIDString;
+//        currentJourney.timestamp = [NSDate date];
         _isRecording = YES;
         [locationManager startUpdatingLocation];
     }
