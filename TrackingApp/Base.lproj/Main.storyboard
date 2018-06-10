@@ -137,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="447" y="-443"/>
         </scene>
-        <!--JourneysTVC-->
+        <!--Your Journeys-->
         <scene sceneID="mKy-vR-dql">
             <objects>
-                <tableViewController storyboardIdentifier="JourneysTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xTf-gU-x7N" customClass="JourneysTVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="JourneysTVC" title="Your Journeys" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xTf-gU-x7N" customClass="JourneysTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6WM-i0-v7P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

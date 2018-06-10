@@ -26,7 +26,7 @@ static LocationMonitoringService *sharedInstance;
         locationManager.delegate = self;
         locationManager.activityType = CLActivityTypeAutomotiveNavigation;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.distanceFilter = 2.0;
         locationManager.pausesLocationUpdatesAutomatically = NO;
         locationManager.allowsBackgroundLocationUpdates = YES;
     }

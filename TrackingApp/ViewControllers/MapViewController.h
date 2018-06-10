@@ -14,11 +14,14 @@
 
 @interface MapViewController : UIViewController<MKMapViewDelegate> {
     LocationMonitoringService *monitoringService;
+    CLLocation *lastLocation;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *trackingStatusSwitch;
+
+@property (nonatomic, retain) MKPolylineView *routeLineView;
 
 @end
 
