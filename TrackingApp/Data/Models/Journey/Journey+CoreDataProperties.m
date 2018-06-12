@@ -18,7 +18,6 @@
 @dynamic begin;
 @dynamic uuid;
 @dynamic end;
-@dynamic no;
 @dynamic locations;
 
 @end

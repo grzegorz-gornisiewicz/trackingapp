@@ -16,7 +16,7 @@
 		37C8246A20CF0B8300842E2A /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C8246620CF0B8300842E2A /* Location+CoreDataProperties.m */; };
 		37C8246F20CF0BF700842E2A /* Journey+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C8246D20CF0BF700842E2A /* Journey+CoreDataClass.m */; };
 		37C8247020CF0BF700842E2A /* Journey+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C8246E20CF0BF700842E2A /* Journey+CoreDataProperties.m */; };
-		37CD582C20D03808005E3C11 /* JourneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CD582B20D03808005E3C11 /* JourneyViewCell.m */; };
+		37CD583020D06583005E3C11 /* JourneyDetailsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CD582F20D06583005E3C11 /* JourneyDetailsTVC.m */; };
 		37D623F220CA70820083CA3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D623F120CA70820083CA3D /* AppDelegate.m */; };
 		37D623F820CA70830083CA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D623F620CA70830083CA3D /* Main.storyboard */; };
 		37D623FD20CA70860083CA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D623FC20CA70860083CA3D /* Assets.xcassets */; };
@@ -42,8 +42,8 @@
 		37C8246C20CF0BF700842E2A /* Journey+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Journey+CoreDataClass.h"; sourceTree = "<group>"; };
 		37C8246D20CF0BF700842E2A /* Journey+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Journey+CoreDataClass.m"; sourceTree = "<group>"; };
 		37C8246E20CF0BF700842E2A /* Journey+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Journey+CoreDataProperties.m"; sourceTree = "<group>"; };
-		37CD582A20D03808005E3C11 /* JourneyViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JourneyViewCell.h; sourceTree = "<group>"; };
-		37CD582B20D03808005E3C11 /* JourneyViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JourneyViewCell.m; sourceTree = "<group>"; };
+		37CD582E20D06583005E3C11 /* JourneyDetailsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JourneyDetailsTVC.h; sourceTree = "<group>"; };
+		37CD582F20D06583005E3C11 /* JourneyDetailsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JourneyDetailsTVC.m; sourceTree = "<group>"; };
 		37D623ED20CA70820083CA3D /* TrackingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D623F020CA70820083CA3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		37D623F120CA70820083CA3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		370051FF20CCAC5300B1FEFF /* JourneysTVC */ = {
 			isa = PBXGroup;
 			children = (
-				37CD582920D0374C005E3C11 /* JourneyViewCell */,
+				37CD582D20D06561005E3C11 /* JourneyDetailsTVC */,
 				3700520020CCAC6E00B1FEFF /* JourneysTVC.h */,
 				3700520120CCAC6E00B1FEFF /* JourneysTVC.m */,
 			);
@@ -144,13 +144,13 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
-		37CD582920D0374C005E3C11 /* JourneyViewCell */ = {
+		37CD582D20D06561005E3C11 /* JourneyDetailsTVC */ = {
 			isa = PBXGroup;
 			children = (
-				37CD582A20D03808005E3C11 /* JourneyViewCell.h */,
-				37CD582B20D03808005E3C11 /* JourneyViewCell.m */,
+				37CD582E20D06583005E3C11 /* JourneyDetailsTVC.h */,
+				37CD582F20D06583005E3C11 /* JourneyDetailsTVC.m */,
 			);
-			path = JourneyViewCell;
+			path = JourneyDetailsTVC;
 			sourceTree = "<group>";
 		};
 		37D623E420CA70820083CA3D = {
@@ -293,9 +293,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37C8246F20CF0BF700842E2A /* Journey+CoreDataClass.m in Sources */,
+				37CD583020D06583005E3C11 /* JourneyDetailsTVC.m in Sources */,
 				3700520320CCAC6E00B1FEFF /* JourneysTVC.m in Sources */,
 				370051FE20CC6DB900B1FEFF /* LocationMonitoringService.m in Sources */,
-				37CD582C20D03808005E3C11 /* JourneyViewCell.m in Sources */,
 				37C8246920CF0B8300842E2A /* Location+CoreDataClass.m in Sources */,
 				37D6240320CA70860083CA3D /* main.m in Sources */,
 				37D623F220CA70820083CA3D /* AppDelegate.m in Sources */,

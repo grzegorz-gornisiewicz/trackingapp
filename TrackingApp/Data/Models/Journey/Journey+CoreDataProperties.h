@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSDate *begin;
 @property (nullable, nonatomic, copy) NSString *uuid;
 @property (nullable, nonatomic, copy) NSDate *end;
-@property (nullable, nonatomic, copy) NSNumber *no;
 @property (nullable, nonatomic, retain) NSSet<Location *> *locations;
 
 @end

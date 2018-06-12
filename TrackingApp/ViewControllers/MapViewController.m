@@ -26,6 +26,7 @@
         _mapView.userTrackingMode = MKUserTrackingModeFollow;
     } else {
         [monitoringService stopRecording];
+        _speedLabel.text = @"0.0";
         _mapView.showsUserLocation = NO;
         _mapView.userTrackingMode = MKUserTrackingModeNone;
     }
@@ -104,7 +105,6 @@
     [self clearRoutePath];
 
     NSArray *sorted = [[[journey locations] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        //
         NSComparisonResult result = [(Location *)obj1 timestamp].timeIntervalSince1970 < [(Location *)obj2 timestamp].timeIntervalSince1970 ? NSOrderedAscending : NSOrderedDescending;
         return result;
     }];

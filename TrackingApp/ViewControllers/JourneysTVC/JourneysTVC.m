@@ -7,7 +7,7 @@
 //
 
 #import "JourneysTVC.h"
-#import "JourneyViewCell.h"
+#import "JourneyDetailsTVC.h"
 #import "DataManager.h"
 #import "Journey+CoreDataClass.h"
 
@@ -19,12 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +37,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    JourneyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JourneyViewCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JourneyViewCell" forIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"Journey #%ld", indexPath.row + 1];
 
@@ -58,23 +52,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    Journey *journey = [DataManager journeyByIndex:@(indexPath.row)];
-    NSString *journeyName = [NSString stringWithFormat:@"Journey #%ld", indexPath.row + 1];
-    NSString *beginDateString = [NSDateFormatter localizedStringFromDate:journey.begin dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];
-    NSString *endDateString = [NSDateFormatter localizedStringFromDate:journey.end dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];
-    NSString *message = [NSString stringWithFormat:@"start time: %@\nend time: %@", beginDateString, endDateString];
-
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:journeyName message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *viewOnMapAction = [UIAlertAction actionWithTitle:@"View on Map" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[NSUserDefaults standardUserDefaults] setObject:@(indexPath.row) forKey:@"JourneyToPlot"];
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-
-    [alert addAction:viewOnMapAction];
-    [alert addAction:cancelAction];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    JourneyDetailsTVC *detailsTVC = [sb instantiateViewControllerWithIdentifier:@"JourneyDetailsTVC"];
+    detailsTVC.index = @(indexPath.row);
+    [self.navigationController pushViewController:detailsTVC animated:YES];
 }
 
 /*
