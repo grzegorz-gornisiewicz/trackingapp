@@ -10,13 +10,13 @@
 		370051F420CB345300B1FEFF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370051F320CB345300B1FEFF /* MapViewController.m */; };
 		370051FE20CC6DB900B1FEFF /* LocationMonitoringService.m in Sources */ = {isa = PBXBuildFile; fileRef = 370051FD20CC6DB900B1FEFF /* LocationMonitoringService.m */; };
 		3700520320CCAC6E00B1FEFF /* JourneysTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3700520120CCAC6E00B1FEFF /* JourneysTVC.m */; };
-		3700520420CCAC6E00B1FEFF /* JourneysTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3700520220CCAC6E00B1FEFF /* JourneysTVC.xib */; };
 		37AA69E720CD57A4002B81A8 /* TrackingModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37AA69E520CD57A4002B81A8 /* TrackingModel.xcdatamodeld */; };
-		37AA6A1820CD5F73002B81A8 /* Journey+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AA6A1220CD5F73002B81A8 /* Journey+CoreDataClass.m */; };
-		37AA6A1920CD5F73002B81A8 /* Journey+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AA6A1320CD5F73002B81A8 /* Journey+CoreDataProperties.m */; };
-		37AA6A1A20CD5F73002B81A8 /* Location+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AA6A1620CD5F73002B81A8 /* Location+CoreDataClass.m */; };
-		37AA6A1B20CD5F73002B81A8 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AA6A1720CD5F73002B81A8 /* Location+CoreDataProperties.m */; };
 		37AA6A2020CD6274002B81A8 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AA6A1F20CD6274002B81A8 /* DataManager.m */; };
+		37C8246920CF0B8300842E2A /* Location+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C8246520CF0B8300842E2A /* Location+CoreDataClass.m */; };
+		37C8246A20CF0B8300842E2A /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C8246620CF0B8300842E2A /* Location+CoreDataProperties.m */; };
+		37C8246F20CF0BF700842E2A /* Journey+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C8246D20CF0BF700842E2A /* Journey+CoreDataClass.m */; };
+		37C8247020CF0BF700842E2A /* Journey+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C8246E20CF0BF700842E2A /* Journey+CoreDataProperties.m */; };
+		37CD582C20D03808005E3C11 /* JourneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CD582B20D03808005E3C11 /* JourneyViewCell.m */; };
 		37D623F220CA70820083CA3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D623F120CA70820083CA3D /* AppDelegate.m */; };
 		37D623F820CA70830083CA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D623F620CA70830083CA3D /* Main.storyboard */; };
 		37D623FD20CA70860083CA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D623FC20CA70860083CA3D /* Assets.xcassets */; };
@@ -31,18 +31,19 @@
 		370051FD20CC6DB900B1FEFF /* LocationMonitoringService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMonitoringService.m; sourceTree = "<group>"; };
 		3700520020CCAC6E00B1FEFF /* JourneysTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JourneysTVC.h; sourceTree = "<group>"; };
 		3700520120CCAC6E00B1FEFF /* JourneysTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JourneysTVC.m; sourceTree = "<group>"; };
-		3700520220CCAC6E00B1FEFF /* JourneysTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneysTVC.xib; sourceTree = "<group>"; };
 		37AA69E620CD57A4002B81A8 /* TrackingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackingModel.xcdatamodel; sourceTree = "<group>"; };
-		37AA6A1020CD5F73002B81A8 /* Journey+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Journey+CoreDataProperties.h"; sourceTree = "<group>"; };
-		37AA6A1120CD5F73002B81A8 /* Journey+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Journey+CoreDataClass.h"; sourceTree = "<group>"; };
-		37AA6A1220CD5F73002B81A8 /* Journey+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Journey+CoreDataClass.m"; sourceTree = "<group>"; };
-		37AA6A1320CD5F73002B81A8 /* Journey+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Journey+CoreDataProperties.m"; sourceTree = "<group>"; };
-		37AA6A1420CD5F73002B81A8 /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataProperties.h"; sourceTree = "<group>"; };
-		37AA6A1520CD5F73002B81A8 /* Location+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataClass.h"; sourceTree = "<group>"; };
-		37AA6A1620CD5F73002B81A8 /* Location+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataClass.m"; sourceTree = "<group>"; };
-		37AA6A1720CD5F73002B81A8 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataProperties.m"; sourceTree = "<group>"; };
 		37AA6A1E20CD6274002B81A8 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		37AA6A1F20CD6274002B81A8 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		37C8246320CF0B8300842E2A /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataProperties.h"; sourceTree = "<group>"; };
+		37C8246420CF0B8300842E2A /* Location+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataClass.h"; sourceTree = "<group>"; };
+		37C8246520CF0B8300842E2A /* Location+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataClass.m"; sourceTree = "<group>"; };
+		37C8246620CF0B8300842E2A /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataProperties.m"; sourceTree = "<group>"; };
+		37C8246B20CF0BF700842E2A /* Journey+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Journey+CoreDataProperties.h"; sourceTree = "<group>"; };
+		37C8246C20CF0BF700842E2A /* Journey+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Journey+CoreDataClass.h"; sourceTree = "<group>"; };
+		37C8246D20CF0BF700842E2A /* Journey+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Journey+CoreDataClass.m"; sourceTree = "<group>"; };
+		37C8246E20CF0BF700842E2A /* Journey+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Journey+CoreDataProperties.m"; sourceTree = "<group>"; };
+		37CD582A20D03808005E3C11 /* JourneyViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JourneyViewCell.h; sourceTree = "<group>"; };
+		37CD582B20D03808005E3C11 /* JourneyViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JourneyViewCell.m; sourceTree = "<group>"; };
 		37D623ED20CA70820083CA3D /* TrackingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D623F020CA70820083CA3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		37D623F120CA70820083CA3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -97,9 +98,9 @@
 		370051FF20CCAC5300B1FEFF /* JourneysTVC */ = {
 			isa = PBXGroup;
 			children = (
+				37CD582920D0374C005E3C11 /* JourneyViewCell */,
 				3700520020CCAC6E00B1FEFF /* JourneysTVC.h */,
 				3700520120CCAC6E00B1FEFF /* JourneysTVC.m */,
-				3700520220CCAC6E00B1FEFF /* JourneysTVC.xib */,
 			);
 			path = JourneysTVC;
 			sourceTree = "<group>";
@@ -107,10 +108,10 @@
 		37AA69E420CD5737002B81A8 /* Journey */ = {
 			isa = PBXGroup;
 			children = (
-				37AA6A1020CD5F73002B81A8 /* Journey+CoreDataProperties.h */,
-				37AA6A1120CD5F73002B81A8 /* Journey+CoreDataClass.h */,
-				37AA6A1220CD5F73002B81A8 /* Journey+CoreDataClass.m */,
-				37AA6A1320CD5F73002B81A8 /* Journey+CoreDataProperties.m */,
+				37C8246B20CF0BF700842E2A /* Journey+CoreDataProperties.h */,
+				37C8246C20CF0BF700842E2A /* Journey+CoreDataClass.h */,
+				37C8246D20CF0BF700842E2A /* Journey+CoreDataClass.m */,
+				37C8246E20CF0BF700842E2A /* Journey+CoreDataProperties.m */,
 			);
 			path = Journey;
 			sourceTree = "<group>";
@@ -118,10 +119,10 @@
 		37AA69EE20CD590A002B81A8 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				37AA6A1420CD5F73002B81A8 /* Location+CoreDataProperties.h */,
-				37AA6A1520CD5F73002B81A8 /* Location+CoreDataClass.h */,
-				37AA6A1620CD5F73002B81A8 /* Location+CoreDataClass.m */,
-				37AA6A1720CD5F73002B81A8 /* Location+CoreDataProperties.m */,
+				37C8246320CF0B8300842E2A /* Location+CoreDataProperties.h */,
+				37C8246420CF0B8300842E2A /* Location+CoreDataClass.h */,
+				37C8246520CF0B8300842E2A /* Location+CoreDataClass.m */,
+				37C8246620CF0B8300842E2A /* Location+CoreDataProperties.m */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -141,6 +142,15 @@
 				37AA6A1F20CD6274002B81A8 /* DataManager.m */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		37CD582920D0374C005E3C11 /* JourneyViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				37CD582A20D03808005E3C11 /* JourneyViewCell.h */,
+				37CD582B20D03808005E3C11 /* JourneyViewCell.m */,
+			);
+			path = JourneyViewCell;
 			sourceTree = "<group>";
 		};
 		37D623E420CA70820083CA3D = {
@@ -269,7 +279,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3700520420CCAC6E00B1FEFF /* JourneysTVC.xib in Resources */,
 				37D6240020CA70860083CA3D /* LaunchScreen.storyboard in Resources */,
 				37D623FD20CA70860083CA3D /* Assets.xcassets in Resources */,
 				37D623F820CA70830083CA3D /* Main.storyboard in Resources */,
@@ -283,15 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37AA6A1820CD5F73002B81A8 /* Journey+CoreDataClass.m in Sources */,
+				37C8246F20CF0BF700842E2A /* Journey+CoreDataClass.m in Sources */,
 				3700520320CCAC6E00B1FEFF /* JourneysTVC.m in Sources */,
-				37AA6A1B20CD5F73002B81A8 /* Location+CoreDataProperties.m in Sources */,
 				370051FE20CC6DB900B1FEFF /* LocationMonitoringService.m in Sources */,
+				37CD582C20D03808005E3C11 /* JourneyViewCell.m in Sources */,
+				37C8246920CF0B8300842E2A /* Location+CoreDataClass.m in Sources */,
 				37D6240320CA70860083CA3D /* main.m in Sources */,
 				37D623F220CA70820083CA3D /* AppDelegate.m in Sources */,
+				37C8247020CF0BF700842E2A /* Journey+CoreDataProperties.m in Sources */,
 				370051F420CB345300B1FEFF /* MapViewController.m in Sources */,
-				37AA6A1920CD5F73002B81A8 /* Journey+CoreDataProperties.m in Sources */,
-				37AA6A1A20CD5F73002B81A8 /* Location+CoreDataClass.m in Sources */,
+				37C8246A20CF0B8300842E2A /* Location+CoreDataProperties.m in Sources */,
 				37AA6A2020CD6274002B81A8 /* DataManager.m in Sources */,
 				37AA69E720CD57A4002B81A8 /* TrackingModel.xcdatamodeld in Sources */,
 			);

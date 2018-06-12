@@ -2,7 +2,7 @@
 //  Journey+CoreDataProperties.m
 //  TrackingApp
 //
-//  Created by Grzegorz Górnisiewicz on 10.06.2018.
+//  Created by Grzegorz Górnisiewicz on 11.06.2018.
 //  Copyright © 2018 Grzegorz Górnisiewicz. All rights reserved.
 //
 //
@@ -15,8 +15,10 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"Journey"];
 }
 
-@dynamic timestamp;
+@dynamic begin;
 @dynamic uuid;
-@dynamic location;
+@dynamic end;
+@dynamic no;
+@dynamic locations;
 
 @end

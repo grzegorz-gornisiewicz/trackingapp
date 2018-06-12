@@ -2,7 +2,7 @@
 //  Location+CoreDataProperties.h
 //  TrackingApp
 //
-//  Created by Grzegorz Górnisiewicz on 10.06.2018.
+//  Created by Grzegorz Górnisiewicz on 11.06.2018.
 //  Copyright © 2018 Grzegorz Górnisiewicz. All rights reserved.
 //
 //
@@ -16,12 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Location *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *uuid;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-@property (nullable, nonatomic, copy) NSDate *timestamp;
 @property (nonatomic) double speed;
-@property (nullable, nonatomic, retain) Journey *journey;
+@property (nullable, nonatomic, copy) NSDate *timestamp;
+@property (nullable, nonatomic, copy) NSString *uuid;
+@property (nullable, nonatomic, retain) Journey *location;
 
 @end
 

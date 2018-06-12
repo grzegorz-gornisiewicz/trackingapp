@@ -9,8 +9,6 @@
 #import "LocationMonitoringService.h"
 
 #import "DataManager.h"
-#import "Journey+CoreDataClass.h"
-#import "Location+CoreDataClass.h"
 
 @implementation LocationMonitoringService
 
@@ -28,11 +26,10 @@ static LocationMonitoringService *sharedInstance;
         
         locationManager = [[CLLocationManager alloc] init];
         locationManager.delegate = self;
-        locationManager.activityType = CLActivityTypeAutomotiveNavigation;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        locationManager.activityType = CLActivityTypeOtherNavigation;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
         locationManager.distanceFilter = 2.0;
         locationManager.pausesLocationUpdatesAutomatically = NO;
-        locationManager.allowsBackgroundLocationUpdates = YES;
         
         dataManager = [[DataManager alloc] init];
     }
@@ -51,13 +48,7 @@ static LocationMonitoringService *sharedInstance;
         NSLog(@"lastLocation:%@", _lastLocation);
         self.lastSpeed = _lastLocation.speed;
     }
- 
-//    Location *location = [Location new];
-//    location.uuid = [NSUUID new].UUIDString;
-//    location.timestamp = [NSDate date];
-//    location.speed = self.lastLocation.speed;
-//    location.latitude = self.lastLocation.coordinate.latitude;
-//    location.longitude = self.lastLocation.coordinate.longitude;
+    [dataManager addLocation:self.lastLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -72,9 +63,8 @@ static LocationMonitoringService *sharedInstance;
 
 - (void)startRecording {
     if (locationManager && !_isRecording) {
-//        currentJourney = [Journey new];
-//        currentJourney.uuid = [NSUUID new].UUIDString;
-//        currentJourney.timestamp = [NSDate date];
+        locationManager.allowsBackgroundLocationUpdates = YES;
+        [dataManager beginJourney];
         _isRecording = YES;
         [locationManager startUpdatingLocation];
     }
@@ -82,6 +72,8 @@ static LocationMonitoringService *sharedInstance;
 
 - (void)stopRecording {
     if (locationManager && _isRecording) {
+        locationManager.allowsBackgroundLocationUpdates = NO;
+        [dataManager endJourney];
         _isRecording = NO;
         [locationManager stopUpdatingLocation];
     }

@@ -2,7 +2,7 @@
 //  Location+CoreDataClass.h
 //  TrackingApp
 //
-//  Created by Grzegorz Górnisiewicz on 10.06.2018.
+//  Created by Grzegorz Górnisiewicz on 11.06.2018.
 //  Copyright © 2018 Grzegorz Górnisiewicz. All rights reserved.
 //
 //

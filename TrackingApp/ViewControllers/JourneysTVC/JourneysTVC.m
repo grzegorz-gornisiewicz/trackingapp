@@ -7,6 +7,9 @@
 //
 
 #import "JourneysTVC.h"
+#import "JourneyViewCell.h"
+#import "DataManager.h"
+#import "Journey+CoreDataClass.h"
 
 @interface JourneysTVC ()
 
@@ -36,68 +39,43 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return [DataManager countJourneys];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    JourneyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JourneyViewCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"Journey #%ld", indexPath.row + 1];
+
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Pass the selected object to the new view controller.
+    Journey *journey = [DataManager journeyByIndex:@(indexPath.row)];
+    NSString *journeyName = [NSString stringWithFormat:@"Journey #%ld", indexPath.row + 1];
+    NSString *beginDateString = [NSDateFormatter localizedStringFromDate:journey.begin dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];
+    NSString *endDateString = [NSDateFormatter localizedStringFromDate:journey.end dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];
+    NSString *message = [NSString stringWithFormat:@"start time: %@\nend time: %@", beginDateString, endDateString];
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:journeyName message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *viewOnMapAction = [UIAlertAction actionWithTitle:@"View on Map" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[NSUserDefaults standardUserDefaults] setObject:@(indexPath.row) forKey:@"JourneyToPlot"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+
+    [alert addAction:viewOnMapAction];
+    [alert addAction:cancelAction];
     
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self presentViewController:alert animated:YES completion:nil];
 }
-*/
 
 /*
 #pragma mark - Navigation
