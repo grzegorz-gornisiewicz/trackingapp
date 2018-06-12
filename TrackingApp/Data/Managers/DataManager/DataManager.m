@@ -53,9 +53,16 @@ static DataManager *sharedInstance;
     request.fetchLimit = 1;
     request.fetchOffset = journeyIndex.integerValue;
 
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"begin"
+                                                                 ascending:YES];
+    [request setSortDescriptors:@[descriptor]];
+
     NSError *error = nil;
     NSArray *result = [managedObjectContext executeFetchRequest:request error:&error];
-
+    if (error) {
+        NSLog(@"error: %@", error);
+    }
+    
     Journey *journey = [result firstObject];
     
     return journey;
@@ -65,10 +72,17 @@ static DataManager *sharedInstance;
     NSArray<Journey *> *journeys;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Journey class])];
-    NSError *error = nil;
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"begin"
+                                                                 ascending:YES];
+    [request setSortDescriptors:@[descriptor]];
 
+    NSError *error = nil;
     journeys = [managedObjectContext executeFetchRequest:request error:&error];
-    
+
+    if (error) {
+        NSLog(@"error: %@", error);
+    }
+
     return journeys;
 }
 
