@@ -34,6 +34,7 @@
 		37AA69E620CD57A4002B81A8 /* TrackingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackingModel.xcdatamodel; sourceTree = "<group>"; };
 		37AA6A1E20CD6274002B81A8 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		37AA6A1F20CD6274002B81A8 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		37B1444420D1977600D79754 /* TrackingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrackingApp.entitlements; sourceTree = "<group>"; };
 		37C8246320CF0B8300842E2A /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataProperties.h"; sourceTree = "<group>"; };
 		37C8246420CF0B8300842E2A /* Location+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Location+CoreDataClass.h"; sourceTree = "<group>"; };
 		37C8246520CF0B8300842E2A /* Location+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Location+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		37D623EF20CA70820083CA3D /* TrackingApp */ = {
 			isa = PBXGroup;
 			children = (
+				37B1444420D1977600D79754 /* TrackingApp.entitlements */,
 				370051F620CB34B300B1FEFF /* Services */,
 				370051F520CB345A00B1FEFF /* ViewControllers */,
 				37D6241620CAA9660083CA3D /* Data */,
@@ -247,6 +249,9 @@
 						CreatedOnToolsVersion = 9.4;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
 								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
@@ -443,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrackingApp/TrackingApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3TEC588SR;
@@ -463,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrackingApp/TrackingApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3TEC588SR;

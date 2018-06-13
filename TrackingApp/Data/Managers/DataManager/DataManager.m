@@ -27,7 +27,7 @@ static DataManager *sharedInstance;
             storeURL = [documentsDirectory URLByAppendingPathComponent:@"db.sqlite"];
             [[NSUserDefaults standardUserDefaults] setURL:storeURL forKey:@"StoreURL"];
         }
-        
+
         modelURL = [[NSBundle mainBundle] URLForResource:@"TrackingModel" withExtension:@"momd"];
         [[NSUserDefaults standardUserDefaults] setURL:modelURL forKey:@"ModelURL"];
 
@@ -35,14 +35,24 @@ static DataManager *sharedInstance;
         managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
         managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
         
-        NSError* error;
-        [managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
-        
+        NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
+                                  //protect file, but give access when locked if opened to add locations
+                                  NSPersistentStoreFileProtectionKey: NSFileProtectionCompleteUnlessOpen,
+                                  NSInferMappingModelAutomaticallyOption: @YES};
+        NSError *error;
+        [managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+
         if (error) {
             NSLog(@"error: %@", error);
         }
         
         managedObjectContext.undoManager = [[NSUndoManager alloc] init];
+
+        NSDictionary *attribs = [[NSFileManager defaultManager] attributesOfItemAtPath:storeURL.path error:&error];
+        NSLog(@"attribs:%@", attribs);
+        if (error) {
+            NSLog(@"error:%@", error);
+        }
     }
     
     return self;
