@@ -101,12 +101,14 @@
 
         case 6: {//distance
             double meters = 0.0;
-            for (NSUInteger i = 0; i < sorted.count - 1; i += 1) {
-                Location *jLocA = [sorted objectAtIndex:i];
-                Location *jLocB = [sorted objectAtIndex:i + 1];
-                CLLocation *locationA = [[CLLocation alloc] initWithLatitude:jLocA.latitude longitude:jLocA.longitude];
-                CLLocation *locationB = [[CLLocation alloc] initWithLatitude:jLocB.latitude longitude:jLocB.longitude];
-                meters += [locationA distanceFromLocation:locationB];
+            if (sorted.count > 0) {
+                for (NSUInteger i = 0; i < sorted.count - 1; i += 1) {
+                    Location *jLocA = [sorted objectAtIndex:i];
+                    Location *jLocB = [sorted objectAtIndex:i + 1];
+                    CLLocation *locationA = [[CLLocation alloc] initWithLatitude:jLocA.latitude longitude:jLocA.longitude];
+                    CLLocation *locationB = [[CLLocation alloc] initWithLatitude:jLocB.latitude longitude:jLocB.longitude];
+                    meters += [locationA distanceFromLocation:locationB];
+                }
             }
             NSString *metersString = [NSNumberFormatter localizedStringFromNumber:@(meters) numberStyle:NSNumberFormatterDecimalStyle];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ meters", metersString];
@@ -117,7 +119,7 @@
         } break;
 
         default:{
-            NSString *journeyName = [NSString stringWithFormat:@"Journey #%ld", indexPath.row + 1];
+            NSString *journeyName = [NSString stringWithFormat:@"Journey #%ld", self.index.integerValue + 1];
             cell.detailTextLabel.text = journeyName;
         } break;
     }
@@ -127,6 +129,7 @@
 
 
 - (void)setIndex:(NSNumber *)index {
+    _index = index;
     [[NSUserDefaults standardUserDefaults] setObject:index forKey:@"JourneyToPlot"];
     journey = [DataManager journeyByIndex:index];
 }

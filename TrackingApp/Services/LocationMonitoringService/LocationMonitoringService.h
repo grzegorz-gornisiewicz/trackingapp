@@ -29,4 +29,6 @@ static NSString * _Nonnull const kLastSpeed             = @"lastSpeed";
 - (void)stopRecording;
 - (void)startRecording;
 
++ (LocationMonitoringService*)sharedInstance;
+
 @end

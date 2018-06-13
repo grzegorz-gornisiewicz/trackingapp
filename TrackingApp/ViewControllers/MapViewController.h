@@ -15,6 +15,7 @@
 @interface MapViewController : UIViewController<MKMapViewDelegate> {
     LocationMonitoringService *monitoringService;
     CLLocation *lastLocation;
+    BOOL autotrackingEnabled;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;

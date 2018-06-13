@@ -48,11 +48,17 @@ static LocationMonitoringService *sharedInstance;
         NSLog(@"lastLocation:%@", _lastLocation);
         self.lastSpeed = _lastLocation.speed;
     }
-    [dataManager addLocation:self.lastLocation];
+
+    if (_isRecording) {
+        [dataManager addLocation:self.lastLocation];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     self.authorizationStatus = status;
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [locationManager startUpdatingLocation];
+    }
 }
 
 - (void)authorizeAccess {
@@ -64,18 +70,18 @@ static LocationMonitoringService *sharedInstance;
 - (void)startRecording {
     if (locationManager && !_isRecording) {
         locationManager.allowsBackgroundLocationUpdates = YES;
+        locationManager.pausesLocationUpdatesAutomatically = NO;
         [dataManager beginJourney];
         _isRecording = YES;
-        [locationManager startUpdatingLocation];
     }
 }
 
 - (void)stopRecording {
     if (locationManager && _isRecording) {
         locationManager.allowsBackgroundLocationUpdates = NO;
+        locationManager.pausesLocationUpdatesAutomatically = YES;
         [dataManager endJourney];
         _isRecording = NO;
-        [locationManager stopUpdatingLocation];
     }
 }
 
@@ -85,6 +91,10 @@ static LocationMonitoringService *sharedInstance;
             sharedInstance = [[LocationMonitoringService alloc] init];
         }
     }
+}
+
++ (LocationMonitoringService*)sharedInstance {
+    return sharedInstance;
 }
 
 @end

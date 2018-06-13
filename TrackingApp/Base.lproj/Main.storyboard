@@ -104,11 +104,44 @@
                                             <constraint firstAttribute="bottom" secondItem="QvW-zg-SnK" secondAttribute="bottom" constant="12" id="uhl-ma-Dsw"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3V-9T-JkG" userLabel="AutotrackingView">
+                                        <rect key="frame" x="155.5" y="0.0" width="64.5" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autotracking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7J-gS-Lbp">
+                                                <rect key="frame" x="-6" y="6" width="78" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="26" id="l12-I8-rGE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AWb-jE-a6x">
+                                                <rect key="frame" x="7.5" y="37" width="51" height="31"/>
+                                                <color key="onTintColor" red="0.90196078430000004" green="0.1905381944" blue="0.30445104839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="onAutotrackingValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Q83-4j-qVt"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="9Zy-8I-zWu"/>
+                                            <constraint firstAttribute="bottom" secondItem="AWb-jE-a6x" secondAttribute="bottom" constant="12" id="co7-ev-sAZ"/>
+                                            <constraint firstItem="i7J-gS-Lbp" firstAttribute="top" secondItem="n3V-9T-JkG" secondAttribute="top" constant="6" id="dmX-tr-V4h"/>
+                                            <constraint firstAttribute="width" constant="64.5" id="jdy-kH-n2B"/>
+                                            <constraint firstItem="AWb-jE-a6x" firstAttribute="centerX" secondItem="n3V-9T-JkG" secondAttribute="centerX" id="l0w-0i-P0x"/>
+                                            <constraint firstAttribute="trailing" secondItem="i7J-gS-Lbp" secondAttribute="trailing" constant="-7.5" id="lpc-H9-xXo"/>
+                                            <constraint firstItem="i7J-gS-Lbp" firstAttribute="leading" secondItem="n3V-9T-JkG" secondAttribute="leading" constant="-6" id="qaI-Qt-9HV"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="W8u-EN-GLW" secondAttribute="bottom" id="1CE-fs-tPt"/>
+                                    <constraint firstItem="n3V-9T-JkG" firstAttribute="centerX" secondItem="JHT-bX-Aiq" secondAttribute="centerX" id="EqV-aj-apg"/>
                                     <constraint firstItem="W8u-EN-GLW" firstAttribute="top" secondItem="JHT-bX-Aiq" secondAttribute="top" id="NLR-wB-hdk"/>
+                                    <constraint firstItem="n3V-9T-JkG" firstAttribute="centerY" secondItem="JHT-bX-Aiq" secondAttribute="centerY" id="YJe-9u-zYP"/>
                                     <constraint firstAttribute="bottom" secondItem="JwB-ef-4dr" secondAttribute="bottom" id="ZEK-dQ-Q0K"/>
                                     <constraint firstItem="JwB-ef-4dr" firstAttribute="top" secondItem="JHT-bX-Aiq" secondAttribute="top" id="ZcS-Qq-ePv"/>
                                     <constraint firstAttribute="height" constant="80" id="qG8-kM-B7x"/>

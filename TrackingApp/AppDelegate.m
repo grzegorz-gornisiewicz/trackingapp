@@ -18,7 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //when app starts never show journey
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"JourneyToPlot"];
+
     return YES;
 }
 
